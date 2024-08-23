@@ -1,0 +1,46 @@
+﻿@page "/"
+@using Models
+
+<PageTitle>Game Catalog</PageTitle>
+
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Release Date</th>
+    </thead>
+    <tbody>
+        @foreach (var game in games){
+            <tr>
+                <td>@game.Id</td>
+                <td>@game.Name</td>
+                <td>@game.Genre</td>
+                <td>@game.Price</td>
+                <td>@game.ReleaseDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+    private GameSummary[]  games = 
+    [
+        new(){
+            Id = 1,
+            Name = "Street fighter",
+            Genre = "Fighting",
+            Price = 19.99M,
+            ReleaseDate = new DateOnly(1999, 2, 25)
+        },
+        new(){
+            Id = 2,
+            Name = "Street Runner",
+            Genre = "Atletes",
+            Price = 25.99M,
+            ReleaseDate = new DateOnly(1999, 5, 23)
+
+        }
+    ];
+}
